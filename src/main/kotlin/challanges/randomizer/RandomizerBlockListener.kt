@@ -25,9 +25,11 @@ class RandomizerBlockListener : Listener {
 
     @EventHandler
     fun onBlockDestroy(e: BlockBreakEvent) {
+        println("Defore")
         if (Variables.currentChallange === ChallangeEnum.RANDOMIZER) {
-
+            println("Configured")
             if (e.block.drops.isNotEmpty()) {
+                println("mnot e,pty")
                 e.block.drops.clear();
                 e.block.drops.add(ItemStack(allocations[e.block.type]!!))
             }

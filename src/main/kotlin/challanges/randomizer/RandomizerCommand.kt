@@ -14,19 +14,19 @@ import java.util.*
 /**
  * Command to enable randomizer challenge
  */
-class RandomizerCommand(private val plugin: Plugin) : CommandExecutor {
+class RandomizerCommand : CommandExecutor {
 
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
         if (Variables.currentChallange === ChallangeEnum.RANDOMIZER) {
             Variables.currentChallange = ChallangeEnum.NONE;
-            sender.server.sendPluginMessage(this.plugin, "Randomizer challenge stopped", byteArrayOf())
+            sender.sendMessage("Randomizer challenge stopped")
             return true;
         }
         this.setRandomBlocks();
         this.setRandomDrops();
         this.setRandomCraftingRecipes();
         Variables.currentChallange = ChallangeEnum.RANDOMIZER;
-        sender.server.sendPluginMessage(this.plugin, "Randomizer challenge started", byteArrayOf());
+        sender.sendMessage("Randomizer challenge started")
         return true;
     }
 

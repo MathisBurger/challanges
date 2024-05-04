@@ -1,5 +1,13 @@
 name: challanges
-version: '${version}'
+version: '1.0'
 main: de.mathisburger.Main
 api-version: '1.20'
 load: STARTUP
+
+commands:
+  randomizer:
+    description: Starts the randomizer challange
+    usage: /randomizer
+  randomizerDebug:
+    description: Used for debug of randomizer challange
+    usage: /randomizerDebug
