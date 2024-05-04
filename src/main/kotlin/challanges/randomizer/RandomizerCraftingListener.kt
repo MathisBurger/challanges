@@ -19,7 +19,11 @@ class RandomizerCraftingListener : Listener {
     @EventHandler
     fun onCraft(e: CraftItemEvent) {
         if (Variables.currentChallange === ChallangeEnum.RANDOMIZER) {
-            e.recipe.result.type = allocations[e.recipe.result.type]!!;
+            val newMaterial = allocations[e.recipe.result.type]!!
+            if (newMaterial.name.indexOf("BED") > -1) {
+                RandomizerBlockListener.exclude = newMaterial.name;
+            }
+            e.recipe.result.type = newMaterial;
         }
     }
 }

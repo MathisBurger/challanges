@@ -34,6 +34,16 @@ class RandomizerDebugCommand : CommandExecutor {
                     sender.sendMessage(ChatColor.GREEN.toString() + "Block: " + mat.key.name)
                 }
             }
+            for (mat in RandomizerCraftingListener.allocations.entries) {
+                if (mat.value.name === material.name) {
+                    sender.sendMessage(ChatColor.GREEN.toString() + "Crafting: " + mat.key.name)
+                }
+            }
+            for (mat in RandomizerEntityDropListener.allocations.entries) {
+                if (mat.value.name === material.name) {
+                    sender.sendMessage(ChatColor.GREEN.toString() + "Drop: " + mat.key.name)
+                }
+            }
         }
         return true
     }
