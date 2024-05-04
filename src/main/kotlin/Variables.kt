@@ -1,5 +1,7 @@
 package de.mathisburger
 
+import org.bukkit.inventory.Recipe
+
 /**
  * All global variables that can be used within the plugin
  */

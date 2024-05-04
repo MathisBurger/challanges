@@ -6,6 +6,7 @@ import org.bukkit.Material
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.inventory.CraftItemEvent
+import org.bukkit.event.inventory.PrepareItemCraftEvent
 
 /**
  * Randomizer listener for crafting actions
@@ -21,9 +22,9 @@ class RandomizerCraftingListener : Listener {
         if (Variables.currentChallange === ChallangeEnum.RANDOMIZER) {
             val newMaterial = allocations[e.recipe.result.type]!!
             if (newMaterial.name.indexOf("BED") > -1) {
-                RandomizerBlockListener.exclude = newMaterial.name;
+               RandomizerBlockListener.exclude = newMaterial.name;
             }
-            e.recipe.result.type = newMaterial;
+            e.inventory.result?.type = newMaterial;
         }
     }
 }
