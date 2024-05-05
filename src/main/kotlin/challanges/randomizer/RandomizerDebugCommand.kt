@@ -23,28 +23,33 @@ class RandomizerDebugCommand : CommandExecutor {
             sender.sendMessage(ChatColor.RED.toString() + "Something went wrong!")
             return true
         }
-        if (args.size == 1) {
-            val material = Material.getMaterial(args[0])
+        if (args.size == 2) {
+            val material = Material.getMaterial(args[1])
             if (material == null) {
                 sender.sendMessage(ChatColor.RED.toString() + "Please provide a valid material ID.")
                 return true
             }
             for (mat in RandomizerBlockListener.allocations.entries) {
-                if (mat.value.name === material.name) {
+                val compare = if(args[0] === "from") mat.key else mat.value;
+                if (compare.name === material.name) {
                     sender.sendMessage(ChatColor.GREEN.toString() + "Block: " + mat.key.name)
                 }
             }
             for (mat in RandomizerCraftingListener.allocations.entries) {
-                if (mat.value.name === material.name) {
+                val compare = if(args[0] === "from") mat.key else mat.value;
+                if (compare.name === material.name) {
                     sender.sendMessage(ChatColor.GREEN.toString() + "Crafting: " + mat.key.name)
                 }
             }
             for (mat in RandomizerEntityDropListener.allocations.entries) {
-                if (mat.value.name === material.name) {
+                val compare = if(args[0] === "from") mat.key else mat.value;
+                if (compare.name === material.name) {
                     sender.sendMessage(ChatColor.GREEN.toString() + "Drop: " + mat.key.name)
                 }
             }
+            return true;
         }
+        sender.sendMessage(ChatColor.RED.toString() + "Invalid command pattern")
         return true
     }
 }
