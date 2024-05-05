@@ -11,6 +11,12 @@ commands:
   randomizerDebug:
     description: Used for debug of randomizer challange
     usage: /randomizerDebug
+    permission: minecraft.command.op
   backpack:
     description: Opens the team backpack
     usage: /backpack
+  invLookup:
+    description: Can be used to lookup a player inventory
+    usage: /invlookup
+    permission: minecraft.command.op
+
