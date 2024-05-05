@@ -14,12 +14,13 @@ class RandomizerConfigurator {
          * Sets all random blocks
          */
         fun setRandomBlocks() {
-            val options = Material.entries.toTypedArray();
+            val options = RandomizerItems.getValidBlocks();
+            val rngOptions = RandomizerItems.getValidOptions();
             val blocks = options.filter { it.isBlock };
             val map: MutableMap<Material, Material> = mutableMapOf()
             val rng = Random()
             for (block in blocks) {
-                map[block] = options[rng.nextInt(options.size)];
+                map[block] = rngOptions[rng.nextInt(rngOptions.size)];
             }
             RandomizerBlockListener.allocations = map;
         }
@@ -28,11 +29,12 @@ class RandomizerConfigurator {
          * Sets all random drops
          */
         fun setRandomDrops() {
-            val options = Material.entries.toTypedArray();
+            val options = RandomizerItems.getValidMaterials();
+            val rngOptions = RandomizerItems.getValidOptions();
             val map: MutableMap<Material, Material> = mutableMapOf()
             val rng = Random()
             for (block in options) {
-                map[block] = options[rng.nextInt(options.size)];
+                map[block] = rngOptions[rng.nextInt(rngOptions.size)];
             }
             RandomizerEntityDropListener.allocations = map;
         }
@@ -41,11 +43,12 @@ class RandomizerConfigurator {
          * Sets all random crafting recipes
          */
         fun setRandomCraftingRecipes() {
-            val options = Material.entries.toTypedArray();
+            val options = RandomizerItems.getValidMaterials();
+            val rngOptions = RandomizerItems.getValidOptions();
             val map: MutableMap<Material, Material> = mutableMapOf()
             val rng = Random()
             for (block in options) {
-                map[block] = options[rng.nextInt(options.size)];
+                map[block] = rngOptions[rng.nextInt(rngOptions.size)];
             }
             RandomizerCraftingListener.allocations = map;
         }
