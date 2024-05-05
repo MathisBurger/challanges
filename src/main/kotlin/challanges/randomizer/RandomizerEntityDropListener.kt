@@ -26,9 +26,6 @@ class RandomizerEntityDropListener : Listener {
                 val first = e.drops[0];
                 e.drops.clear();
                 val newMaterial = allocations[first.type]!!
-                if (newMaterial.name.indexOf("BED") > -1) {
-                    RandomizerBlockListener.exclude = newMaterial.name;
-                }
                 e.drops.add(ItemStack(newMaterial));
             }
         }

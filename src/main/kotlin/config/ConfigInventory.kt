@@ -2,6 +2,7 @@ package de.mathisburger.config
 
 import de.mathisburger.ChallangeEnum
 import de.mathisburger.Variables
+import de.mathisburger.challanges.randomizer.RandomizerConfigurator
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.Material
@@ -53,6 +54,7 @@ class ConfigInventory : Listener {
                     if (currentItem?.type === Material.BOOK) {
                         Variables.currentChallanges.add(ChallangeEnum.RANDOMIZER_BLOCK);
                         inventory.setItem(0, ConfigStatics.statusItems.get("blockRandomizer"));
+                        RandomizerConfigurator.setRandomBlocks();
                     } else {
                         Variables.currentChallanges.remove(ChallangeEnum.RANDOMIZER_BLOCK);
                         inventory.setItem(0, ConfigStatics.generalItems[0]);
@@ -65,6 +67,7 @@ class ConfigInventory : Listener {
                     if (currentItem?.type === Material.BOOK) {
                         Variables.currentChallanges.add(ChallangeEnum.RANDOMIZER_DROP);
                         inventory.setItem(1, ConfigStatics.statusItems.get("dropRandomizer"));
+                        RandomizerConfigurator.setRandomBlocks();
                     } else {
                         Variables.currentChallanges.remove(ChallangeEnum.RANDOMIZER_DROP);
                         inventory.setItem(1, ConfigStatics.generalItems[1]);
@@ -77,6 +80,7 @@ class ConfigInventory : Listener {
                     if (currentItem?.type === Material.BOOK) {
                         Variables.currentChallanges.add(ChallangeEnum.RANDOMIZER_CRAFT);
                         inventory.setItem(2, ConfigStatics.statusItems.get("craftRandomizer"));
+                        RandomizerConfigurator.setRandomBlocks();
                     } else {
                         Variables.currentChallanges.remove(ChallangeEnum.RANDOMIZER_CRAFT);
                         inventory.setItem(2, ConfigStatics.generalItems[2]);

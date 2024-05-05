@@ -9,43 +9,45 @@ import java.util.*
  */
 class RandomizerConfigurator {
 
-    /**
-     * Sets all random blocks
-     */
-    fun setRandomBlocks() {
-        val options = Material.entries.toTypedArray();
-        val blocks = options.filter { it.isBlock };
-        val map: MutableMap<Material, Material> = mutableMapOf()
-        val rng = Random()
-        for (block in blocks) {
-            map[block] = options[rng.nextInt(options.size)];
+    companion object {
+        /**
+         * Sets all random blocks
+         */
+        fun setRandomBlocks() {
+            val options = Material.entries.toTypedArray();
+            val blocks = options.filter { it.isBlock };
+            val map: MutableMap<Material, Material> = mutableMapOf()
+            val rng = Random()
+            for (block in blocks) {
+                map[block] = options[rng.nextInt(options.size)];
+            }
+            RandomizerBlockListener.allocations = map;
         }
-        RandomizerBlockListener.allocations = map;
-    }
 
-    /**
-     * Sets all random drops
-     */
-    private fun setRandomDrops() {
-        val options = Material.entries.toTypedArray();
-        val map: MutableMap<Material, Material> = mutableMapOf()
-        val rng = Random()
-        for (block in options) {
-            map[block] = options[rng.nextInt(options.size)];
+        /**
+         * Sets all random drops
+         */
+        fun setRandomDrops() {
+            val options = Material.entries.toTypedArray();
+            val map: MutableMap<Material, Material> = mutableMapOf()
+            val rng = Random()
+            for (block in options) {
+                map[block] = options[rng.nextInt(options.size)];
+            }
+            RandomizerEntityDropListener.allocations = map;
         }
-        RandomizerEntityDropListener.allocations = map;
-    }
 
-    /**
-     * Sets all random crafting recipes
-     */
-    private fun setRandomCraftingRecipes() {
-        val options = Material.entries.toTypedArray();
-        val map: MutableMap<Material, Material> = mutableMapOf()
-        val rng = Random()
-        for (block in options) {
-            map[block] = options[rng.nextInt(options.size)];
+        /**
+         * Sets all random crafting recipes
+         */
+        fun setRandomCraftingRecipes() {
+            val options = Material.entries.toTypedArray();
+            val map: MutableMap<Material, Material> = mutableMapOf()
+            val rng = Random()
+            for (block in options) {
+                map[block] = options[rng.nextInt(options.size)];
+            }
+            RandomizerCraftingListener.allocations = map;
         }
-        RandomizerCraftingListener.allocations = map;
     }
 }
