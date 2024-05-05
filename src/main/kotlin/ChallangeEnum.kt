@@ -5,5 +5,7 @@ package de.mathisburger
  */
 enum class ChallangeEnum {
     NONE,
-    RANDOMIZER
+    RANDOMIZER_CRAFT,
+    RANDOMIZER_DROP,
+    RANDOMIZER_BLOCK
 }

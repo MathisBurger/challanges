@@ -23,7 +23,7 @@ class RandomizerBlockListener : Listener {
 
     @EventHandler
     fun onBlockDestroy(e: BlockBreakEvent) {
-        if (Variables.currentChallange === ChallangeEnum.RANDOMIZER) {
+        if (Variables.currentChallanges.indexOf(ChallangeEnum.RANDOMIZER_BLOCK) > -1) {
             e.isCancelled = true;
             val newMaterial = allocations[e.block.type]!!;
             if (newMaterial.name.indexOf("BED") > -1) {
@@ -36,7 +36,7 @@ class RandomizerBlockListener : Listener {
 
     @EventHandler
     fun onBlockDrop(e: ItemSpawnEvent) {
-        if (Variables.currentChallange === ChallangeEnum.RANDOMIZER) {
+        if (Variables.currentChallanges.indexOf(ChallangeEnum.RANDOMIZER_BLOCK) > -1) {
             if (
                 e.entity.itemStack.type.name.indexOf("BED") > -1
                 && exclude !== e.entity.itemStack.type.name

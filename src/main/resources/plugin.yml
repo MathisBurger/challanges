@@ -5,9 +5,9 @@ api-version: '1.20'
 load: STARTUP
 
 commands:
-  randomizer:
-    description: Starts the randomizer challange
-    usage: /randomizer
+  config:
+    description: Opens config inv
+    usage: /config
   randomizerDebug:
     description: Used for debug of randomizer challange
     usage: /randomizerDebug

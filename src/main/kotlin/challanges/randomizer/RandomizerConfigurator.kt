@@ -1,40 +1,18 @@
 package de.mathisburger.challanges.randomizer
 
-import de.mathisburger.ChallangeEnum
-import de.mathisburger.Variables
-import org.bukkit.Bukkit
 import org.bukkit.Material
-import org.bukkit.Server
-import org.bukkit.command.Command
-import org.bukkit.command.CommandExecutor
-import org.bukkit.command.CommandSender
-import org.bukkit.inventory.Recipe
 import java.util.*
 
 
 /**
  * Command to enable randomizer challenge
  */
-class RandomizerCommand : CommandExecutor {
-
-    override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
-        if (Variables.currentChallange === ChallangeEnum.RANDOMIZER) {
-            Variables.currentChallange = ChallangeEnum.NONE;
-            sender.sendMessage("Randomizer challenge stopped")
-            return true;
-        }
-        this.setRandomBlocks();
-        this.setRandomDrops();
-        this.setRandomCraftingRecipes();
-        Variables.currentChallange = ChallangeEnum.RANDOMIZER;
-        sender.sendMessage("Randomizer challenge started")
-        return true;
-    }
+class RandomizerConfigurator {
 
     /**
      * Sets all random blocks
      */
-    private fun setRandomBlocks() {
+    fun setRandomBlocks() {
         val options = Material.entries.toTypedArray();
         val blocks = options.filter { it.isBlock };
         val map: MutableMap<Material, Material> = mutableMapOf()

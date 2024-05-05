@@ -21,7 +21,7 @@ class RandomizerEntityDropListener : Listener {
 
     @EventHandler
     fun onDrop(e: EntityDeathEvent) {
-        if (Variables.currentChallange === ChallangeEnum.RANDOMIZER) {
+        if (Variables.currentChallanges.indexOf(ChallangeEnum.RANDOMIZER_DROP) > -1) {
             if (e.drops.isNotEmpty()) {
                 val first = e.drops[0];
                 e.drops.clear();

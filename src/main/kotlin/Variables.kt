@@ -8,6 +8,6 @@ import org.bukkit.inventory.Recipe
 class Variables {
 
     companion object {
-        var currentChallange: ChallangeEnum = ChallangeEnum.NONE;
+        var currentChallanges: MutableList<ChallangeEnum> = mutableListOf();
     }
 }
