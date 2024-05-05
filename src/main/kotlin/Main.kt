@@ -1,6 +1,7 @@
 package de.mathisburger
 
 import de.mathisburger.challanges.randomizer.*
+import de.mathisburger.utility.BackbackCommand
 import org.bukkit.plugin.java.JavaPlugin
 import java.util.*
 
@@ -10,6 +11,9 @@ import java.util.*
 final class Main : JavaPlugin() {
 
     override fun onEnable() {
+
+        // Register utility commands
+        getCommand("backpack")?.setExecutor(BackbackCommand());
 
         // Register listeners and commands for randomizer
         getCommand("randomizer")?.setExecutor(RandomizerCommand())

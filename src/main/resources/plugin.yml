@@ -11,3 +11,6 @@ commands:
   randomizerDebug:
     description: Used for debug of randomizer challange
     usage: /randomizerDebug
+  backpack:
+    description: Opens the team backpack
+    usage: /backpack
